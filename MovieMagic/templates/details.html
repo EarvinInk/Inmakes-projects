@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img src="{{movie.poster.url}}">
+        </div>
+        <div class="col-8">
+            <div class="jumbotron">
+                <h1 class="display-4">{{movie.title}}</h1>
+                <p class="lead">Director:{{movie.director}}  Year:{{movie.release_date}}  Genre:{{movie.genre}}</p>
+                <hr class="my-4">
+                <p>{{movie.long_disc}}.</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="{% url 'movies:edit' movie.id %}" role="button">Edit</a>
+
+                    <a class="btn btn-danger btn-lg" href="{% url 'movies:delete' movie.id %}" role="button">Delete</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

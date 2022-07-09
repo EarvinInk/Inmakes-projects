@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="card text-center">
+  <div class="card-header">
+    Delete
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{movie.title}}</h5>
+    <p class="card-text">Do you wish to delete the selected movie?</p>
+      <form method="post">
+        {% csrf_token %}
+          <input type="submit" value="Delete" class="btn btn-danger">
+      </form>
+
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+{% endblock %}

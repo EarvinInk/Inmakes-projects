@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="card-deck">
+        <div class="row">
+
+
+            {% for movie in movies %}
+            <div class="col-3 mt-3">
+                <div class="card h-100" style="width: 18rem;">
+                    <img class="card-img-top" src="{{movie.poster.url}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{movie.title}}</h5>
+                        <p class="card-text">{{movie.short_disc}}</p>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <a href=" {% url 'movies:detail' movie.id %}"
+                           class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
