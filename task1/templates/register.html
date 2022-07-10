@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/register_login.css'%}">
+  </head>
+  <body>
+    <div class="signup__container">
+  <div class="container__child signup__thumbnail">
+
+    <div class="thumbnail__content text-center">
+      <h1 class="heading--primary">Welcome to Travello.</h1>
+      <h2 class="heading--secondary">Are you ready to join the elite?</h2>
+    </div>
+
+    <div class="signup__overlay"></div>
+  </div>
+  <div class="container__child signup__form">
+    <form class="form_ct" action="" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" type="text" name="username" id="username" placeholder="Enter username" required />
+      </div>
+      <div class="form-group">
+        <label for="first_name">First name</label>
+        <input class="form-control" type="text" name="firstname" id="first_name" placeholder="Enter First name" required />
+      </div>
+      <div class="form-group">
+        <label for="last_name">Last name</label>
+        <input class="form-control" type="text" name="lastname" id="last_name" placeholder="Enter username" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" name="email" id="email" placeholder="Enter email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password" required />
+      </div>
+      <div class="form-group">
+        <label for="passwordRepeat">Repeat Password</label>
+        <input class="form-control" type="password" name="cpassword" id="passwordRepeat" placeholder="Confirm password">
+      <div class="m-t-lg">
+        <ul class="list-inline">
+          <li>
+            <input class="btn btn--form" type="submit" value="Register" />
+          </li>
+
+        </ul>
+      </div>
+    </form>
+    <div class="signup__link" href="#">{% for msg in messages%}
+    {{msg}}
+    {% endfor%}</div>
+  </div>
+</div>
+  </body>
+</html>
